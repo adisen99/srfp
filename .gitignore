@@ -33,3 +33,4 @@ dmypy.json
 # Personel stuff
 data/
 images/
+*.html
