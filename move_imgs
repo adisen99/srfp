@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# shell script to move images to wpr images directoty
+
+dirname=$1
+
+mkdir -p ~/Documents/srfp/wprs/4/images/${dirname:?"missing directory name."}
+
+cp -r ./${dirname}/images/* ~/Documents/srfp/wprs/4/images/${dirname}
+
+echo "Done for $1"
