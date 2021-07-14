@@ -145,12 +145,14 @@ def get_stat_performance(df, type=None):
         print("fractional bias = ", fb)
 
         # Pearson's Corr Coeff
+        try:
+            r, p = stats.pearsonr(df[obs], df[mod])
+        except ValueError:
+            r = ((df[obs] - df[obs].describe()[1]) *
+                 (df[mod] - df[mod].describe()[1])).describe()[1] / \
+                (df[mod].describe()[2] * df[obs].describe()[2])
 
-        # r = ((df[obs] - df[obs].describe()[1]) *
-        #      (df[mod] - df[mod].describe()[1])).describe()[1] / \
-        #     (df[mod].describe()[2] * df[obs].describe()[2])
-
-        r, p = stats.pearsonr(df[obs], df[mod])
+            p = "NA"
 
         print("Correlation coefficient is :")
         print("corr coeff = ", r, " and p-value is = ", p)
