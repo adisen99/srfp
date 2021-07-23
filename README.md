@@ -30,6 +30,14 @@ https://duckduckgo.com/?q=boundary+layer+and+air+pollution+dispersion&t=brave&ia
 - [x] Use the samples to find 95% confidence interval of FB and plot.
 - [x] Plot minimum NMSE vs FB and see the relation between bias and variance i.e. find accuracy and precision (behaviour) of the model. (Done for Delhi, getting high accuracy and high precision i.e. values are close to zero or perfect score but for the AQI forecast, not for raw data)
 
+**Resources** - 
+
+- https://online.stat.psu.edu/stat200/book/export/html/429
+- https://sebastianraschka.com/blog/2016/model-evaluation-selection-part2.html
+- https://www.researchgate.net/publication/339022941_Comparison_of_the_impacts_of_empirical_power-law_dispersion_schemes_on_simulations_of_pollutant_dispersion_during_different_atmospheric_conditions
+- https://www.researchgate.net/publication/350498529_Validation_of_dispersion_model_designated_for_the_coke_production_industry
+
 # Further Reading
 
 - Box plots for time series of skewness.
+- Residual Plots - [source](https://github.com/adisen99/srfp)
