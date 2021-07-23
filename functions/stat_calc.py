@@ -32,14 +32,17 @@ def get_stat_performance(df, type=None):
 
         mb_pm25 = (df[mod_pm2] - df[obs_pm2]).describe()[1]
         mb_pm10 = (df[mod_pm10] - df[obs_pm10]).describe()[1]
-        mb_aqi25 = (df['mod_aqi_pm2'] - df['obs_aqi_pm2']).describe()[1]
-        mb_aqi10 = (df['mod_aqi_pm10'] - df['obs_aqi_pm10']).describe()[1]
+        if request == 2:
+            mb_aqi25 = (df['mod_aqi_pm2'] - df['obs_aqi_pm2']).describe()[1]
+            mb_aqi10 = (df['mod_aqi_pm10'] - df['obs_aqi_pm10']).describe()[1]
 
         print("Mean bias :")
         print("mean bias pm2.5 = ", mb_pm25)
         print("mean bias pm10 = ", mb_pm10)
-        print("mean bias aqi_pm2.5 = ", mb_aqi25)
-        print("mean bias aqi_pm10 = ", mb_aqi10, "\n")
+
+        if request == 2:
+            print("mean bias aqi_pm2.5 = ", mb_aqi25)
+            print("mean bias aqi_pm10 = ", mb_aqi10, "\n")
 
         # fractional bias
 
@@ -47,16 +50,19 @@ def get_stat_performance(df, type=None):
                        (df[mod_pm2].describe()[1] + df[obs_pm2].describe()[1]))
         fb_pm10 = 2 * ((df[mod_pm10].describe()[1] - df[obs_pm10].describe()[1]) /
                        (df[mod_pm10].describe()[1] + df[obs_pm10].describe()[1]))
-        fb_aqi25 = 2 * ((df['mod_aqi_pm2'].describe()[1] - df['obs_aqi_pm2'].describe()[1]) /
-                        (df['mod_aqi_pm2'].describe()[1] + df['obs_aqi_pm2'].describe()[1]))
-        fb_aqi10 = 2 * ((df['mod_aqi_pm10'].describe()[1] - df['obs_aqi_pm10'].describe()[1]) /
+        if request == 2:
+            fb_aqi25 = 2 * ((df['mod_aqi_pm2'].describe()[1] - df['obs_aqi_pm2'].describe()[1]) /
+                            (df['mod_aqi_pm2'].describe()[1] + df['obs_aqi_pm2'].describe()[1]))
+            fb_aqi10 = 2 * ((df['mod_aqi_pm10'].describe()[1] - df['obs_aqi_pm10'].describe()[1]) /
                         (df['mod_aqi_pm10'].describe()[1] + df['obs_aqi_pm10'].describe()[1]))
 
         print("fractional bias is :")
         print("fractional bias pm2.5 = ", fb_pm25)
         print("fractional bias pm10 = ", fb_pm10)
-        print("fractional bias aqi_pm2.5 = ", fb_aqi25)
-        print("fractional bias aqi_pm10 = ", fb_aqi10, "\n")
+
+        if request == 2:
+            print("fractional bias aqi_pm2.5 = ", fb_aqi25)
+            print("fractional bias aqi_pm10 = ", fb_aqi10, "\n")
 
         # Pearson's Corr Coeff
 
@@ -78,15 +84,18 @@ def get_stat_performance(df, type=None):
 
         r_pm10, p_pm10 = stats.pearsonr(df[obs_pm10], df[mod_pm10])
 
-        r_aqi25, p_aqi25 = stats.pearsonr(df['obs_aqi_pm2'], df['mod_aqi_pm2'])
+        if request == 2:
 
-        r_aqi10, p_aqi10 = stats.pearsonr(df['obs_aqi_pm10'], df['mod_aqi_pm10'])
+            r_aqi25, p_aqi25 = stats.pearsonr(df['obs_aqi_pm2'], df['mod_aqi_pm2'])
+
+            r_aqi10, p_aqi10 = stats.pearsonr(df['obs_aqi_pm10'], df['mod_aqi_pm10'])
 
         print("Correlation coefficient is :")
         print("corr coeff pm2.5 = ", r_pm25, " and p-value is = ", p_pm25)
         print("corr coeff pm10 = ", r_pm10, " and p-value is = ", p_pm10)
-        print("corr coeff aqi_pm2.5 = ", r_aqi25, " and p-value is = ", p_aqi25)
-        print("corr coeff aqi_pm10 = ", r_aqi10, "\n", " and p-value is = ", p_aqi10)
+        if request == 2:
+            print("corr coeff aqi_pm2.5 = ", r_aqi25, " and p-value is = ", p_aqi25)
+            print("corr coeff aqi_pm10 = ", r_aqi10, "\n", " and p-value is = ", p_aqi10)
 
         # RMSE
 
@@ -94,16 +103,22 @@ def get_stat_performance(df, type=None):
                             * (df[mod_pm2] - df[obs_pm2])).describe()[1])
         rmse_pm10 = np.sqrt(((df[mod_pm10] - df[obs_pm10])
                             * (df[mod_pm10] - df[obs_pm10])).describe()[1])
-        rmse_aqi25 = np.sqrt(((df['mod_aqi_pm2'] - df['obs_aqi_pm2']) *
-                              (df['mod_aqi_pm2'] - df['obs_aqi_pm2'])).describe()[1])
-        rmse_aqi10 = np.sqrt(((df['mod_aqi_pm10'] - df['obs_aqi_pm10']) *
+
+        if request == 2:
+
+            rmse_aqi25 = np.sqrt(((df['mod_aqi_pm2'] - df['obs_aqi_pm2']) *
+                                  (df['mod_aqi_pm2'] - df['obs_aqi_pm2'])).describe()[1])
+            rmse_aqi10 = np.sqrt(((df['mod_aqi_pm10'] - df['obs_aqi_pm10']) *
                               (df['mod_aqi_pm10'] - df['obs_aqi_pm10'])).describe()[1])
 
         print("RMSE is :")
         print("RMSE pm2.5 = ", rmse_pm25)
         print("RMSE pm10 = ", rmse_pm10)
-        print("RMSE aqi_pm2.5 = ", rmse_aqi25)
-        print("RMSE aqi_pm10 = ", rmse_aqi10, "\n")
+
+        if request == 2:
+
+            print("RMSE aqi_pm2.5 = ", rmse_aqi25)
+            print("RMSE aqi_pm10 = ", rmse_aqi10, "\n")
         
         # NMSE
 
@@ -113,16 +128,20 @@ def get_stat_performance(df, type=None):
         nmse_pm10 = (((df[mod_pm10] - df[obs_pm10]) * (df[mod_pm10] - df[obs_pm10])).describe()[1]) \
                 / (df[obs_pm10].describe()[1] * df[mod_pm10].describe()[1])
 
-        nmse_aqi25 = (((df['mod_aqi_pm2'] - df['obs_aqi_pm2']) * (df['mod_aqi_pm2'] - df['obs_aqi_pm2'])).describe()[1]) \
-                / (df['obs_aqi_pm2'].describe()[1] * df['mod_aqi_pm2'].describe()[1])
-        nmse_aqi10 = (((df['mod_aqi_pm10'] - df['obs_aqi_pm10']) * (df['mod_aqi_pm10'] - df['obs_aqi_pm10'])).describe()[1]) \
+        if request == 2:
+
+            nmse_aqi25 = (((df['mod_aqi_pm2'] - df['obs_aqi_pm2']) * (df['mod_aqi_pm2'] - df['obs_aqi_pm2'])).describe()[1]) \
+                    / (df['obs_aqi_pm2'].describe()[1] * df['mod_aqi_pm2'].describe()[1])
+            nmse_aqi10 = (((df['mod_aqi_pm10'] - df['obs_aqi_pm10']) * (df['mod_aqi_pm10'] - df['obs_aqi_pm10'])).describe()[1]) \
                 / (df['obs_aqi_pm10'].describe()[1] * df['mod_aqi_pm10'].describe()[1])
 
         print("NMSE is :")
         print("NMSE pm2.5 = ", nmse_pm25)
         print("NMSE pm10 = ", nmse_pm10)
-        print("NMSE aqi_pm2.5 = ", nmse_aqi25)
-        print("NMSE aqi_pm10 = ", nmse_aqi10, "\n")
+
+        if request == 2:
+            print("NMSE aqi_pm2.5 = ", nmse_aqi25)
+            print("NMSE aqi_pm10 = ", nmse_aqi10, "\n")
 
     if type == None:
 

@@ -13,8 +13,8 @@ https://duckduckgo.com/?q=boundary+layer+and+air+pollution+dispersion&t=brave&ia
 # TODO
 
 - [x] Calculate the NMSE, and calc corr coeff and p-value to get significance
+- [x] Read about Effect size and how to report it alongside p-value for a more scientifically accurate evaluation - [CHECK THIS](https://www.simplypsychology.org/effect-size.html) (not required)
 - [ ] For the different cities, convert the raw data from IST to UTC using the same function used for Delhi observation met_data.
-- [ ] Read about Effect size and how to report it alongside p-value for a more scientifically accurate evaluation - [CHECK THIS](https://www.simplypsychology.org/effect-size.html)
 
 ## Variability against the anomaly
 - [x] Read and possibly implement low freq. and high freq. Variability. (NOT implementing)
@@ -24,3 +24,12 @@ https://duckduckgo.com/?q=boundary+layer+and+air+pollution+dispersion&t=brave&ia
 - The idea is to take 3 day average and plot the box-plots time-series
 - Then compare the time-series against the variability time-series to see how the model skewness changes for days of high variability and days of low variability.
 
+## NMSE vs FB (Bootstrapping the confidence interval)
+
+- [x] Using Bootstrapping technique take 1000 random samples of data.
+- [x] Use the samples to find 95% confidence interval of FB and plot.
+- [x] Plot minimum NMSE vs FB and see the relation between bias and variance i.e. find accuracy and precision (behaviour) of the model. (Done for Delhi, getting high accuracy and high precision i.e. values are close to zero or perfect score but for the AQI forecast, not for raw data)
+
+# Further Reading
+
+- Box plots for time series of skewness.
