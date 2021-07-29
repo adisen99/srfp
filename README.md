@@ -15,6 +15,7 @@ https://duckduckgo.com/?q=boundary+layer+and+air+pollution+dispersion&t=brave&ia
 - [x] Calculate the NMSE, and calc corr coeff and p-value to get significance
 - [x] Read about Effect size and how to report it alongside p-value for a more scientifically accurate evaluation - [CHECK THIS](https://www.simplypsychology.org/effect-size.html) (not required)
 - [ ] For the different cities, convert the raw data from IST to UTC using the same function used for Delhi observation met_data.
+- [x] Plot count distribution of AQI PM concentrations and associated q-q plots. 
 
 ## Variability against the anomaly
 - [x] Read and possibly implement low freq. and high freq. Variability. (NOT implementing)
