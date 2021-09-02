@@ -46,7 +46,7 @@ def plot(data, x, y, type=None, **kwargs):
         # 'k--', color='k', alpha=0.5)
         plt.xlim(lineStartx, lineEndx)
         plt.ylim(lineStarty, lineEndy)
-        plt.legend(loc=0, prop={'size': 15})
+        plt.legend(frameon = True, loc=0, prop={'size': 12})
 
     if type == 'logistic':
         lineStartx = x.min()
@@ -64,7 +64,7 @@ def plot(data, x, y, type=None, **kwargs):
         # 'k--', color='k', alpha=0.5)
         plt.xlim(lineStartx, lineEndx)
         plt.ylim(lineStarty, lineEndy)
-        plt.legend(loc=0, prop={'size': 15})
+        plt.legend(frameon = True, loc=0, prop={'size': 12})
 
     if type == None:
         if x.min() < y.min():
@@ -86,4 +86,4 @@ def plot(data, x, y, type=None, **kwargs):
                  'k--', color='k', alpha=0.5)
         plt.xlim(lineStart, lineEnd)
         plt.ylim(lineStart, lineEnd)
-        plt.legend(loc=0, prop={'size': 15})
+        plt.legend(frameon = True, loc=0, prop={'size': 12})

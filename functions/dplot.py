@@ -28,25 +28,25 @@ def plot(dfmod, dfobs, mod, obs, mod_stdev=None, obs_stdev=None):
 
     times = [x for x in range(0, 24)]
 
-    plt.plot(times, dfmod[mod]['mean'], color='red', label='model')
+    plt.plot(times, dfmod[mod]['mean'], color='tab:red', label='model')
 
     if mod_stdev is not None:
         (_, caps, _) = plt.errorbar(times, dfmod[mod]['mean'], yerr=dfmod[mod_stdev]['mean'],
-                                    alpha=0.3, ecolor='red', fmt='o', mfc='red', markersize=8,
+                                    alpha=0.3, ecolor='tab:red', fmt='o', mfc='tab:red', markersize=8,
                                     capsize=10, label='stdev')
 
         for cap in caps:
             cap.set_markeredgewidth(1)
 
-    plt.plot(times, dfobs[obs]['mean'], color='blue', label='observed')
+    plt.plot(times, dfobs[obs]['mean'], color='tab:blue', label='observed')
 
     if obs_stdev is not None:
         (_, caps, _) = plt.errorbar(times, dfobs[obs]['mean'], yerr=dfobs[obs_stdev]['mean'],
-                                    alpha=0.3, ecolor='blue', fmt='o', mfc='blue', markersize=8,
+                                    alpha=0.3, ecolor='tab:blue', fmt='o', mfc='tab:blue', markersize=8,
                                     capsize=10, label='stdev')
 
         for cap in caps:
             cap.set_markeredgewidth(1)
 
-    plt.legend(loc=1, prop={'size': 12})
+    plt.legend(ncol=2, frameon=False, loc='right', bbox_to_anchor=(1.02, 1.13), prop={'size': 12})
     plt.xticks(np.arange(0, 24, step=1))
