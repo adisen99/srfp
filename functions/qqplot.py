@@ -87,6 +87,6 @@ def plot(x, y, quantiles=None, interpolation='linear', ax=None, rug=False,
 
     # Draw the q-q plot
     ax.scatter(x_quantiles, y_quantiles, **kwargs)
-    plt.plot([lineStart, lineEnd], [lineStart, lineEnd], 'k-', color='k')
+    plt.plot([lineStart, lineEnd], [lineStart, lineEnd], 'k-')
     plt.xlim(lineStart, lineEnd)
     plt.ylim(lineStart, lineEnd)

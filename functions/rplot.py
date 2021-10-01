@@ -79,7 +79,7 @@ def plot(data, x, y, type=None, **kwargs):
 
         sns.regplot(x=x, y=y, data=data, color='r', scatter=False,
                     fit_reg=True, truncate=True, label='Linear Fit').set(xlabel=None, ylabel=None)
-        plt.plot([lineStart, lineEnd], [lineStart, lineEnd], 'k-', color='k', alpha = 0.7)
+        plt.plot([lineStart, lineEnd], [lineStart, lineEnd], 'k-', alpha = 0.7)
         # plt.plot([lineStart, lineEnd], [lineStart, 0.5773*lineEnd],
         #          'k--', color='k', alpha=0.5)
         # plt.plot([lineStart, lineEnd], [lineStart, 1.7321*lineEnd],
