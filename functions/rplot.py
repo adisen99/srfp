@@ -7,10 +7,10 @@ from scipy import stats
 
 def plot(data, x, y, type=None, **kwargs):
     """
-    Function to plot the corr coeff plot 
+    Function to plot the corr coeff plot
     --------------------------
     input 3 values data, x and y in this order
-    and use this example - 
+    and use this example -
 
     data = dataframe_name
     x = data['column_name']
@@ -79,11 +79,11 @@ def plot(data, x, y, type=None, **kwargs):
 
         sns.regplot(x=x, y=y, data=data, color='r', scatter=False,
                     fit_reg=True, truncate=True, label='Linear Fit').set(xlabel=None, ylabel=None)
-        plt.plot([lineStart, lineEnd], [lineStart, lineEnd], 'k-', color='k')
-        plt.plot([lineStart, lineEnd], [lineStart, 0.5773*lineEnd],
-                 'k--', color='k', alpha=0.5)
-        plt.plot([lineStart, lineEnd], [lineStart, 1.7321*lineEnd],
-                 'k--', color='k', alpha=0.5)
+        plt.plot([lineStart, lineEnd], [lineStart, lineEnd], 'k-', color='k', alpha = 0.7)
+        # plt.plot([lineStart, lineEnd], [lineStart, 0.5773*lineEnd],
+        #          'k--', color='k', alpha=0.5)
+        # plt.plot([lineStart, lineEnd], [lineStart, 1.7321*lineEnd],
+        #          'k--', color='k', alpha=0.5)
         plt.xlim(lineStart, lineEnd)
         plt.ylim(lineStart, lineEnd)
         plt.legend(frameon = True, loc=0, prop={'size': 12})
